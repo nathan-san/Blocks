@@ -39,7 +39,7 @@ public class GeneratingObjects : MonoBehaviour {
 		blocks = new GameObject[numberOfObjects];
 		for(int i = 0; i< numberOfObjects; i++)
 		{
-			startPosition = new Vector3(-59f,0f,0f);
+			startPosition = new Vector3(-29f,0f,0f);
 			GameObject temp = Instantiate(block,startPosition,Quaternion.identity) as GameObject;
 			blocks[i] = temp;
 		}
@@ -65,7 +65,7 @@ public class GeneratingObjects : MonoBehaviour {
 
 
 
-				if(blocks[i].transform.position.x <=-60 )
+				if(blocks[i].transform.position.x <=-30 )
 				{
 					Destroy(blocks[i]);
 					if(i ==0)
