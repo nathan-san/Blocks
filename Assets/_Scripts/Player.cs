@@ -11,7 +11,6 @@ public class Player : MonoBehaviour {
 	public float gravity = 20.0F;
 	public float jumpCount = 0.0f; 
 	public bool isGrounded = true;
-	private Vector3  rot = new Vector3(0f,0f,0f);
 	private Vector3 moveDirection = Vector3.zero;
 	public AudioSource jumpSound;
 
@@ -59,7 +58,8 @@ public class Player : MonoBehaviour {
 	void OnTriggerEnter(Collider other) {
 
 
-		if (other.gameObject.tag =="doublejump") 
+		if(other.gameObject.tag =="doublejump" )
+		//if (other.gameObject.tag =="doublejump") 
 		{
 			Destroy(other.gameObject);
 			jumpCount =0;
