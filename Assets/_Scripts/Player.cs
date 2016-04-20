@@ -13,11 +13,17 @@ public class Player : MonoBehaviour {
 	public bool isGrounded = true;
 	private Vector3 moveDirection = Vector3.zero;
 	public AudioSource jumpSound;
+    public Text scoreText;
+    private int score = 0;
+    private CharacterController controller;
+    void Start()
+    {
+        controller = GetComponent<CharacterController>();
+    }
+    void FixedUpdate() {
+        score++;
+        scoreText.text = "Score: " + score;
 
-
-	void Update() {
-
-		CharacterController controller = GetComponent<CharacterController>();
 		if (controller.isGrounded) {
 			moveDirection = new Vector3 (0, 0, 0);
 			moveDirection = transform.TransformDirection (moveDirection);
@@ -43,10 +49,9 @@ public class Player : MonoBehaviour {
 				ColorObject.GetComponent<ColorChange>().change();
 				moveDirection.y = jumpSpeed; 
 				jumpCount++;
-
-
 			} 
 		} 
+
 		if (jumpCount == 2 && controller.isGrounded) {
 			jumpCount--;
 		}
